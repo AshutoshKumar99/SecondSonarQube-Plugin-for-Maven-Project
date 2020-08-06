@@ -1,0 +1,28 @@
+SonarQube Plugin for Maven Project-
+Requirements-
+1.Download the latest Sonatqube server,maven.
+2.Install Java  and maven and set PATH of java and maven.
+3.Open cmd and navigate to sonarqube bin folder and execute StartSonar.bat file.
+4.Create Maven project and add below dependency in pom.xml
+	<dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.4.0.905</version>
+			<type>pom</type>
+		</dependency>
+		
+5.Add profile for sonarqube-
+ <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                 http://localhost:9000/
+                </sonar.host.url>
+            </properties>
+        </profile>
+	
+6.Now execute mvn package sonar:sonar 
